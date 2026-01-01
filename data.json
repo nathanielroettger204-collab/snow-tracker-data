@@ -10,3 +10,27 @@
     }
   ]
 }
+async function updateSnowData() {
+  try {
+    // Get the data from GitHub
+    const response = await fetch('https://yourusername.github.io/snow-tracker-data/data.json');
+    const data = await response.json();
+
+    const container = document.getElementById('snowData');
+    container.innerHTML = ''; // Clear old snow info
+
+    // Add each location's snow info
+    data.locations.forEach(loc => {
+      const div = document.createElement('div');
+      div.textContent = `${loc.name}: ${loc.snow}`;
+      container.appendChild(div);
+    });
+
+  } catch (error) {
+    console.error('Oops! Could not load snow info:', error);
+  }
+}
+
+// Run this function when the page loads
+window.onload = updateSnowData;
+<div id="snowData"></div>
