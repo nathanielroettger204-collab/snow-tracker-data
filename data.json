@@ -1,0 +1,12 @@
+{
+  "locations": [
+    {
+      "name": "Providence Elementary",
+      "snow": "2 inches"
+    },
+    {
+      "name": "Other Place",
+      "snow": "0 inches"
+    }
+  ]
+}
